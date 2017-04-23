@@ -344,9 +344,11 @@ module.exports = registerElement('a-scene', {
         // Set at startup. To enable/disable antialias
         // at runttime we would have to recreate the whole context
         var antialias = this.getAttribute('antialias') === 'true';
+        var logarithmicDepthBuffer = this.getAttribute('logarithmicDepthBuffer') === 'true';
         var renderer = this.renderer = new THREE.WebGLRenderer({
           canvas: canvas,
           antialias: antialias || window.hasNativeWebVRImplementation,
+          logarithmicDepthBuffer: logarithmicDepthBuffer,
           alpha: true
         });
         renderer.setPixelRatio(window.devicePixelRatio);
